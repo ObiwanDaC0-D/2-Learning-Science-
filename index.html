@@ -37,6 +37,36 @@ svg{max-width:100%}
 
 /* Shared learning landing page */
 .learning-home-intro{background:linear-gradient(130deg,#18354b,#112338 75%);border:1px solid var(--line);border-radius:18px;padding:24px;margin:0 0 20px}.learning-home-intro h2{margin:7px 0 8px}.learning-home-intro p{max-width:720px;margin:0 0 18px}.learning-home-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px}.learning-home-action{width:100%;text-align:left;min-height:48px;padding:12px 14px;background:#1b364b;border:1px solid #416277;border-radius:12px;color:var(--text);font-weight:600}.learning-home-action:hover{background:#244a56;border-color:var(--accent)}#explore>.grid,#explore>.panel{margin-bottom:20px}@media(max-width:680px){.learning-home-intro{padding:18px}.learning-home-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.learning-home-action{font-size:14px;padding:10px}}@media(max-width:360px){.learning-home-actions{grid-template-columns:1fr}}
+
+/* Cross-device usability hardening: compact phones, touch and safe areas */
+html,body{max-width:100%;overflow-x:clip}
+body{overflow-wrap:break-word}
+main,section,.panel,.card,.toolbar,.grid{min-width:0}
+#nav{max-width:100%;scroll-padding-inline:12px;padding-bottom:14px}
+#nav button{touch-action:manipulation}
+button,a,select,input{touch-action:manipulation}
+button{max-width:100%;overflow-wrap:anywhere}
+input,select,textarea{font-size:max(16px,1rem)}
+img,video,canvas,iframe{max-width:100%;height:auto}
+svg{max-width:100%}
+table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+pre,code{overflow-wrap:anywhere}
+.panel,.card{overflow-wrap:anywhere}
+footer{padding-bottom:max(22px,env(safe-area-inset-bottom))}
+@media(max-width:680px){
+  #nav{scroll-snap-type:x proximity}
+  #nav button{scroll-snap-align:start}
+  .toolbar{min-width:0}
+  .toolbar>input,.toolbar>select{min-width:0;max-width:100%}
+  .learning-home-actions{gap:8px}
+}
+@media(max-width:420px){
+  header h1{font-size:clamp(2rem,10vw,2.5rem)}
+  .panel,.card{padding:15px}
+  .toolbar{gap:8px}
+}
+@media(hover:none){button:hover{transform:none}}
+
 </style></head><body><header><a href="https://obiwandac0-d.github.io/0-Central-Hub/" aria-label="Return to Central Learning Hub" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;padding:9px 14px;border:1px solid #42677b;border-radius:12px;color:#7ed5c7;text-decoration:none;font-size:14px;font-weight:650;background:#13243a">← Central Hub</a><div class="eyebrow">LEARNING REPOSITORY · 02</div><h1>Learning Science</h1><p>Discover how people acquire, retain, transfer, and apply knowledge. Evidence first. Practice deliberately.</p><nav id="nav" aria-label="Main navigation"></nav></header><main>
 <section id="explore"><div class="learning-home-intro"><div class="eyebrow">LEARNING OVERVIEW</div><h2>Explore · Understand · Apply</h2><p>Understand how knowledge is acquired, retained, and transferred. Choose a learning pathway, jump into a tool, or return to your progress at any time.</p><div class="learning-home-actions"><button type="button" class="learning-home-action" data-home-tab="Library">Explore concepts</button><button type="button" class="learning-home-action" data-home-tab="Lab">Try a learning lab</button><button type="button" class="learning-home-action" data-home-tab="Practice">Practice retrieval</button><button type="button" class="learning-home-action" data-home-tab="Progress">View progress</button></div></div><div class="grid"><div class="panel"><div class="stat" id="topicCount">30</div><div class="tags">Concepts and frameworks</div></div><div class="panel"><div class="stat" id="reviewCount">0</div><div class="tags">Concepts reviewed</div></div><div class="panel"><div class="stat" id="quizCount">0</div><div class="tags">Practice questions answered</div></div></div><h2>Learning pathways</h2><div id="pathways" class="grid"></div></section>
 <section id="library" class="hidden"><h2>Concept Library</h2><p>Explore mechanisms, evidence context, practical applications and limitations. Evidence summaries are introductory, not formal certainty ratings.</p><div class="toolbar"><input id="search" placeholder="Search concepts, contributors, ideas…" aria-label="Search library"><select id="category" aria-label="Filter category"><option value="">All categories</option></select></div><div id="libraryGrid" class="grid"></div></section>
